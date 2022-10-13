@@ -22,16 +22,16 @@ export default function Chart({data, isGlobal}) {
   let recoveredData = [];
   if (isGlobal) {
     title = `This is all cases in the Global`;
-    labels = data?.Countries.map((country) => country.Country);
-    confirmedData = data?.Countries.map((country) => country.TotalConfirmed);
-    deathsData = data?.Countries.map((country) => country.TotalDeaths);
-    recoveredData = data?.Countries.map((country) => country.TotalRecovred);
+    labels = [] || data?.Countries.map((country) => country.Country);
+    confirmedData = [] || data?.Countries.map((country) => country.TotalConfirmed);
+    deathsData = [] || data?.Countries.map((country) => country.TotalDeaths);
+    recoveredData = [] || data?.Countries.map((country) => country.TotalRecovred);
   } else {
     title = `This is all cases in the ${data[0]?.Country}`;
-    labels = data?.map((day) => day.Date.slice(0, 10));
-    confirmedData = data?.map((day) => day.Confirmed);
-    deathsData = data?.map((day) => day.Deaths);
-    recoveredData = data?.map((day) => day.Recovered);
+    labels = [] || data?.map((day) => day.Date.slice(0, 10));
+    confirmedData = [] || data?.map((day) => day.Confirmed);
+    deathsData = [] || data?.map((day) => day.Deaths);
+    recoveredData = [] || data?.map((day) => day.Recovered);
   }
   const dataChart = {
     labels,
