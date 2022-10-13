@@ -23,9 +23,9 @@ function App() {
     TotalDeaths = data.Global.TotalDeaths;
     TotalRecovered = data.Global.TotalRecovered;
   } else {
-    TotalConfirmed = Math.max(...data?.map((day) => day.Confirmed));
-    TotalDeaths = Math.max(...data?.map((day) => day.Deaths));
-    TotalRecovered = Math.max(...data?.map((day) => day.Recovered));
+    TotalConfirmed = Math.max(0, ...data?.map((day) => day.Confirmed));
+    TotalDeaths = Math.max(0, ...data?.map((day) => day.Deaths));
+    TotalRecovered = Math.max(0, ...data?.map((day) => day.Recovered));
   }
   useEffect(() => {
     fetchCases("Global");
