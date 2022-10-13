@@ -28,10 +28,10 @@ export default function Chart({data, isGlobal}) {
     recoveredData = [] || data?.Countries.map((country) => country.TotalRecovred);
   } else {
     title = `This is all cases in the ${data[0]?.Country}`;
-    labels = [] || data?.map((day) => day.Date.slice(0, 10));
-    confirmedData = [] || data?.map((day) => day.Confirmed);
-    deathsData = [] || data?.map((day) => day.Deaths);
-    recoveredData = [] || data?.map((day) => day.Recovered);
+    labels = data?.map((day) => day.Date.slice(0, 10));
+    confirmedData = data?.map((day) => day.Confirmed);
+    deathsData = data?.map((day) => day.Deaths);
+    recoveredData = data?.map((day) => day.Recovered);
   }
   const dataChart = {
     labels,
